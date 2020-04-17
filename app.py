@@ -1,3 +1,5 @@
+import os
+
 import tkinter as tk 
 from PIL import Image, ImageTk 
 from playsound import playsound
@@ -5,6 +7,9 @@ from playsound import playsound
 WINDOW_TITLE = "My Wardrobe"
 WINDOW_HEIGHT = 220
 WINDOW_WIDTH = 500
+
+# store all the Tops into a filename can access & skip hidden files
+ALL_TOPS = [str('tops/')+ imagefile for imagefile in os.listdir('tops/') if not imagefile.startswith('.')]
 
 class WardrobeApp:
     def __init__(self, root):
@@ -21,4 +26,5 @@ class WardrobeApp:
 
 root = tk.Tk()
 app = WardrobeApp(root)
+print(ALL_TOPS)
 root.mainloop()
